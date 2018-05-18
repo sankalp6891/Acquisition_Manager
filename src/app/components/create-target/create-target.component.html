@@ -1,0 +1,41 @@
+<div class="div-target-form">
+<div class="row">
+    <div class="col-md-12 page-title">
+      <h3 [hidden]="this.acquisitionManagerService.selectedTarget.id === -1">Update Target</h3>
+      <h3 [hidden]="this.acquisitionManagerService.selectedTarget.id !== -1">Add Target</h3>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <label for="company-name">Company Name:</label>
+    <input class="form-control" [(ngModel)]="acquisitionManagerService.selectedTarget.CompanyInfo" type="text" id="company-name" />
+  </div>
+  <div class="col-md-4">
+      <label for="select-status">Current Status:</label>
+      <select id="select-status" [(ngModel)]="acquisitionManagerService.selectedTarget.Status" class="form-control">
+        <option *ngFor="let status of optionsStatus" 
+        [value]="status.id">{{status.name}}</option>
+      </select>
+    </div>
+  
+</div>
+<div class="row">
+    <div class="col-md-4">
+      <label for="company-name">Key Contact:</label>
+      <input class="form-control" [(ngModel)]="acquisitionManagerService.selectedTarget.KeyContacts" type="text" id="company-name" />
+    </div>
+    <div class="col-md-4">
+        <label for="select-performance">Financial Performance:</label>
+        <select id="select-performance" [(ngModel)]="acquisitionManagerService.selectedTarget.Performance" class="form-control">
+            <option *ngFor="let performance of optionsPerformance" 
+            [value]="performance.id">{{performance.name}}</option>
+          </select>
+      </div>
+    
+  </div>
+  <div class="row div-save-btn">
+    <div class="col-md-12">
+      <button class="btn" (click)="saveUpdateTarget();" >Save</button>
+    </div>
+  </div>
+</div>
